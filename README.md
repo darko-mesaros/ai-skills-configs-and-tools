@@ -1,5 +1,7 @@
 # AI Skills, Configs & Tools
 
+> NOTE: This is provided as is my friends. So please treat is as that ❤️
+
 My collection of agent skills, configuration files, and tooling for AI coding assistants (OpenCode, Claude Code, Kiro, etc.).
 
 ## Structure
