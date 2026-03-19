@@ -221,6 +221,29 @@ obsidian links vault="darko" file="some-note"
 obsidian backlinks vault="darko" file="some-note"
 ```
 
+## Patching / Replacing Content
+
+The Obsidian CLI has no `patch` or `replace` command. For in-place text edits (fixing typos, expanding a section, replacing a thin entry with a richer one), use `fs_write str_replace` directly on the vault file.
+
+### Vault file path pattern
+`~/workspace/darko/<note-path>.md`
+
+Examples:
+- Daily note: `~/workspace/darko/AREAS/inbox/2026-03-18.md`
+- Project note: `~/workspace/darko/PROJECTS/photon.md`
+- Person note: `~/workspace/darko/RESOURCES/people/jane-doe.md`
+
+### Patch workflow
+1. **Read the note first** via `obsidian read vault="darko" file="<path>"` to get current content
+2. Use `fs_write str_replace` with enough context in `old_str` to match uniquely
+3. Confirm the change to Darko
+
+### Rules for patching
+- **Never use patching to delete content** — only to replace or expand existing content
+- **For structural operations** (move, rename, delete), always use the CLI — those need wikilink updates
+- **For adding new content**, prefer `append`/`prepend` via CLI — those go through Obsidian's API
+- After patching, the Obsidian index may take a moment to catch up — this is fine for content edits
+
 ## Critical Rules
 
 1. **NEVER delete content** from notes unless Darko explicitly asks. Only append.

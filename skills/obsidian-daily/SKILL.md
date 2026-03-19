@@ -79,6 +79,10 @@ obsidian daily vault="darko"
 obsidian read vault="darko" file="AREAS/inbox/2026-03-18"
 ```
 
+## Patching / Replacing Content
+
+For in-place edits to daily notes (expanding entries, fixing content, replacing sections), use `fs_write str_replace` on `~/workspace/darko/AREAS/inbox/YYYY-MM-DD.md`. See the **obsidian-vault** skill for full patching rules and workflow.
+
 ## Critical Rules
 
 1. **NEVER delete content** from a daily note. Only append. If Darko explicitly asks to remove something, confirm first.
